@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div class="ml-3 mt-3">
+    <div class="row">
+        <div class="col-md-2">
+            <b>Filters</b>
+        </div>
+        <div class="col-md-6">
+            <!-- Column -->
+        </div>
+        <div class="col-lg-2" style="margin-right: 20px;">
+            <!-- <input type="text" value="hhhh"> -->
+            <div class="card" >
+                <div class="dropdown-toggle" style="margin-left: 10px;" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  SortBy: Recommended
+                </div>
+              
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" (click)="sortById()">sort by Id</a></li>
+                  <li><a class="dropdown-item" (click)="sortByName()">sort by Name</a></li>
+                  <li><a class="dropdown-item" (click)="sortByRating()">sort by Rating</a></li>
+                  <li><a class="dropdown-item" (click)="sortByPrice()">sort by Price</a></li>
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
+<div class="card mt-3 mr-3 ml-3">
+    <div class="row">
+        <!-- <div class="col-2">
+            Column
+        </div> -->
+        <div class="col-10">
+            <div class=" mt-4">
+                <div class="row  row-cols-4 justify-content-center">
+
+                    <div class="col-lg-3 col-md-4 mb-4" *ngFor="let product of productList">
+                        <div class="card h-100 w-75">
+
+                            <!-- <div class="badge bg-dark text-white position-absolute">
+                                Sale</div> -->
+
+                            <img class="card-img-top" src="{{hostname+product.url}}" alt="..." style="height: 175px;">
+
+                            <div class="card-body p-1">
+                                <div class="text-center">
+
+                                    <h5 class="fw-bolder" style="color: #f71a67;"
+                                        routerLink='/view-product/userId/{{ product.id }}'>{{ product.pname }}
+                                    </h5>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div *ngIf="product.rating >=1"><i class="bi bi-star-fill"></i></div>
+                                        <div *ngIf="product.rating >=2"> <i class="bi bi-star-fill"></i></div>
+                                        <div *ngIf="product.rating >=3"><i class="bi bi-star-fill"></i></div>
+                                        <div *ngIf="product.rating >=4"><i class="bi bi-star-fill"></i></div>
+                                        <div *ngIf="product.rating >=5"><i class="bi bi-star-fill"></i></div>
+                                    </div>
+                                    <h5>Rs.{{ product.price }}/-</h5>
+                                </div>
+                            </div>
+                            <div class="card-footer  border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <button  class="btn"
+                                        style="background-color: #f71a67!important;color: white;"
+                                        routerLink='/view-product/{{ product.id }}'>View</button>
+                                    <!-- <button class="btn btn-success" style="font-size: small; margin-left: 20px;"  routerLink='/buy/{{ product._id }}'>Buy </button> -->
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

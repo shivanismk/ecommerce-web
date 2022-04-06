@@ -1,0 +1,60 @@
+<!-- <section class="py-5"> -->
+<app-header></app-header>
+
+<div class="row justify-content-end" style="margin-top: -70px;margin-right: 30px; margin-bottom: 30px;">
+    <div class="col-md-3 " style="display: flex;">
+        <label style="margin-right: 50px; color: white;"><B>Search: </B></label>
+        <input type="text" class="form-control" [(ngModel)]="filteredString" />
+    </div>
+</div>
+<div style="padding-top: 20px;">
+    <img class="d-block w-100"
+        src="https://img.paisawapas.com/ovz3vew9pw/2021/08/23153104/Myntra-Final-Clearance-Sale.png " alt="First slide">
+</div>
+<!-- <div>
+    <button class="btn" style="background-color: #f71a67!important;color: white;" (click)="sortById()">sort by Id</button>
+    <button class="btn" style="background-color: #f71a67!important;color: white;" (click)="sortByName()">sort by Name</button>
+    <button class="btn" style="background-color: #f71a67!important;color: white;" (click)="sortByRating()">sort by Rating</button>
+    <button class="btn" style="background-color: #f71a67!important;color: white;" (click)="sortByPrice()">sort by Price</button>
+</div> -->
+
+<div class=" px-3 px-lg-4 mt-5" >
+    <div class="row  row-cols-4 justify-content-center" >
+
+        <div class="col-lg-3 col-md-4 mb-4" *ngFor="let product of productList | filter: filteredString">
+            <div class="card h-100 w-75">
+
+                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+
+                <img class="card-img-top" src="{{hostname+product.url}}" alt="..." style="height: 175px;">
+
+                <div class="card-body p-1">
+                    <div class="text-center">
+                        <h5 class="fw-bolder" style="color: #f71a67;"
+                            routerLink='/view-product/userId/{{ product._id }}'>{{ product.pname }}
+                        </h5>
+                        <div class="d-flex justify-content-center small text-warning mb-2">
+                            <div *ngIf= "product.rating >=1"><i class="bi bi-star-fill"></i></div>
+                            <div *ngIf="product.rating >=2"> <i class="bi bi-star-fill"></i></div>
+                            <div *ngIf="product.rating >=3"><i class="bi bi-star-fill"></i></div>
+                            <div *ngIf="product.rating >=4"><i class="bi bi-star-fill"></i></div>
+                            <div *ngIf="product.rating >=5"><i class="bi bi-star-fill"></i></div>                                                      
+                        </div>
+                        <h5>Rs.{{ product.price }}/-</h5>
+                    </div>
+                </div>
+                <div class="card-footer  border-top-0 bg-transparent">
+                    <div class="text-center">
+                        <button type="button" class="btn" style="background-color: #f71a67!important;color: white;"
+                            routerLink='/view-product/{{ product._id }}'>View</button>
+                        <!-- <button class="btn btn-success" style="font-size: small; margin-left: 20px;"  routerLink='/buy/{{ product._id }}'>Buy </button> -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- </section> -->

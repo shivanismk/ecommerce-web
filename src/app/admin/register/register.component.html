@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+       <h2>Create your account</h2> 
+       
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="myform" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm">
+        <div class="form-group">
+          <input type="text" id="login" formControlName="fname" class="fadeIn second" name="fname" placeholder="first name" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }">
+          <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+            <div *ngIf="f.fname.errors.required">First name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <input type="text" id="lname" formControlName="lname" class="fadeIn second" name="lname" placeholder="last name" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }">
+            <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+              <div *ngIf="f.lname.errors.required">Last name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" id="login" formControlName="email" class="fadeIn second" name="email" placeholder="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="file" id="login" formControlName="url" class="fadeIn second" name="email"  placeholder="email"
+             [ngClass]="{ 'is-invalid': submitted && f.url.errors }" (change)=onSelectedFile($event)/>
+            <div *ngIf="submitted && f.url.errors" class="invalid-feedback">
+              <div *ngIf="f.url.errors.required">Image is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" id="phone" pattern="[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{3}" formControlName="phone" class="fadeIn second" name="phone" placeholder="Mobile no." [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required">Mobile no. is required</div>
+            </div>
+          </div>
+       
+        <div class="form-group">
+          <input type="password" id="password" formControlName="password" class="fadeIn third" name="password" placeholder="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Passowrd is required & should be strong(Sk@123456)</div>
+          </div>
+        </div>
+       
+      
+        <input type="submit" class="fadeIn fourth" value="Register"  >
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </form>
+      <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        
+        <div class="col-md-12 control">
+          <div  >
+              If already have an account! 
+          <a routerLink='/login'>
+              Sign In Here
+          </a>
+          </div>
+      </div>
+     
+    </div>
+    </div>
+  </div>

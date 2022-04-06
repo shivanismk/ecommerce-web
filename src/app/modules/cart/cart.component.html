@@ -1,0 +1,83 @@
+
+<app-header></app-header>
+
+
+
+
+<div class="container">
+  <h2 class="my-5 h2 text-center" style="color: #f71a67!important;">Shopping Cart</h2>
+
+  <table class="table">
+    <thead>
+      <tr class="table-danger">
+        <th scope="col">S.No.</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Size</th>
+        <th scope="col">Total price</th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody >
+     
+      <tr  *ngFor="let product of productData;  let i= index;" >
+        <td scope="row col-md-1" >{{i+1}}.</td>
+        <td class="col-md-1" >
+          <img class="img-fluid w-100" src="{{hostname+product.url}}" alt="Sample">
+        </td>
+        <td class="col-md-2" >
+            <p>
+            {{product.pname}}
+           </p>  
+        </td>
+        <td class="col-md-2">
+          Rs. {{product.price}}/-
+         </td>
+
+        <td class="col-md-2">
+          <div class="def-number-input number-input safari_only mb-0 ">
+            {{product.Quantity}}
+          <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus">-</button> -->
+          <!-- <input class="number" min="0" name="quantity" value="1" type="number"> -->
+          <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus">+</button> -->
+        </div></td>
+        <td class="col-md-2">
+          <div class="">
+           
+                {{product.size}}
+          <!-- <input class="number" min="0" name="quantity" value="1" type="number"> -->
+        </div>
+      </td>
+
+        <td class="col-md-2">
+         
+            Rs. {{product.price*product.Quantity}}/-         
+        </td> 
+         <td class="col-md-2">
+          <a  (click) = "onDelete(product._id)"> <i class="bi bi-trash"></i></a>
+         </td>  
+      </tr> 
+    
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col">
+      <button type="button" style="background-color: #f71a67!important;color: white;"  class="btn  btn-block waves-effect waves-light" routerLink='/buy' >go to
+        checkout</button>
+
+    </div>
+    <div class="col">
+     <h4 >  Total Price:<span style="color: #f71a67!important" > {{totalPrice}}/-</span>  </h4>
+    </div>
+  
+  </div>
+   <p class=" mb-0" style="padding-top: 40px;color: #f71a67;"><i style="color: #f71a67;" class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+              items to your cart does not mean booking them.</p>
+
+</div>
+
+
+

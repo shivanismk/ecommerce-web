@@ -1,0 +1,63 @@
+
+
+
+
+<h2 class="bg-light mb-2 text-center" style="color: #f71a67!important;">Add New Product</h2>
+<div  style="border:4px solid #f71a67; padding: 20px; margin-left: 400px;margin-right: 400px;">
+<form [formGroup]="myform" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm"  >
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <label for="validationServer01">For</label>
+        <input type="text" formControlName="for" class="form-control" placeholder="Enter For Name"  name="for_name" >
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="validationServer01">Category Name</label>
+        <input type="text" formControlName="catName" class="form-control" placeholder="Enter Category Name"  name="category_name" >
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="validationServer01">Product Name</label>
+        <input type="text" formControlName="pname" class="form-control" placeholder="Enter Product Name"  name="product_name" >
+      </div>
+      
+      <div class="col-md-12 mb-3">
+        <label for="url">Image</label>
+        <input formControlName="url" id="url" type="file" class="form-control" (change)=onSelectedFile($event)/>
+        
+    </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-12 mb-">
+        <label for="validationServer03">Description</label>
+        <textarea type="text" formControlName="description" class="form-control" placeholder="Enter Product Description"  name="product_description"  >
+        </textarea>
+      </div><br>
+      <div class="col-md-12 mb-3">
+        <label style="padding-right: 10px;">Rating </label>
+        <select class="custom-select" formControlName="rating"  name="product_rating" >
+          <option selected value="">Choose...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <label for="validationServer01">Product Price</label>
+        <input type="text"  formControlName="price" class="form-control" placeholder="enter price"  name="product_price" >
+      </div>
+        <!-- <div class="col-md-6 mb-3">
+          <label for="validationServer02">Is Avaiable</label>
+          <select class="custom-select" required name="product_available" ngModel>
+            <option selected value="">Choose...</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div> -->
+      </div>
+
+    <button class="btn" style="background-color: #f71a67!important;color: white;" type="submit">Submit form</button>
+  </form>
+  </div>

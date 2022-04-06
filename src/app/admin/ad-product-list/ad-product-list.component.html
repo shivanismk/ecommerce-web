@@ -1,0 +1,75 @@
+<!-- <div class="container">
+  <h5 style="text-align:left ;"> Add excel file</h5>
+  <div class="card " style="height: 100px; width: 300px; padding: 30px; margin: 0px;">
+    
+    <input type="file" id="input" (change)="excelRead($event)" />
+  </div>
+</div> -->
+
+<div  class="container">
+  <form>
+    <input type="file"  (change)="onFileChange($event)" multiple="false" />
+    <button (click)="export()">Export!</button>
+    <!-- <button class="btn" type="submit">Submit form</button> -->
+  </form>
+  
+  <h4 style="text-align: center;color: #f71a67;">Product list List</h4>
+<table class="table">
+	<tbody>
+		<tr *ngFor="let row of data">
+			<td *ngFor="let val of row">
+				{{val}}
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+
+<div class="container">
+  <h4 style="text-align: center;color: #f71a67;">Product list List</h4>
+  <table class="table">
+
+    <thead class="table-danger">
+
+      <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Product detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productList;  let i= index;">
+        <td scope="row ">{{i+1}}.</td>
+        <!-- <td>Mark</td> -->
+        <td>
+          <div class="row mb-8">
+            <div class="col-md-2 ">
+              <img class="img-fluid w-100" src="{{hostname+product.url}}">
+            </div>
+
+            <div class="col-md-4 " style="padding-left: 40px;">
+              <p> {{product.pname}}</p>
+              <p>{{product.price}}</p>
+            </div>
+
+
+            <div class="col-md-3">
+              <h2>
+                <a routerLink='/update-product/{{product._id}}'> <i style="color: green;"
+                    class="bi bi-pencil-square"></i></a>
+              </h2>
+            </div>
+            <div class="col-md-1 ">
+              <h2><a routerLink='/delete-product/{{product._id}}'><i style="color: #f71a67;"
+                    class="bi bi-trash"></i></a></h2>
+            </div>
+          </div>
+        </td>
+
+      </tr>
+
+
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,86 @@
+<app-header></app-header>
+
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{hostname+productData.product.url}}"
+                    alt="..."></div>
+            <div class="col-md-6">
+               
+                <h1 class="display-5 fw-bolder" style="color: #f71a67!important;">{{ productData.product.pname }}</h1>
+                
+                <div class="d-flex  small text-warning ">
+                    <div class="">{{ productData.product.rating}}Stars</div>
+                </div>
+                <div class="fs-5 mb-5">
+                    <h5>Rs.{{productData. product.price }}/-</h5>
+                    
+                </div>
+                
+                
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem
+                    modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus
+                    ipsam minima ea iste laborum vero?</p>
+                   
+                    <form [formGroup]="myform" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm">
+                    <div class="d-flex">
+                        <h5 style="padding-right:7px ;">Size: </h5>
+                        
+                              <select name="size" id="size" formControlName="size" required>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                              </select>
+                              <div *ngIf = "f.size.touched && f.size.invalid" class="alert alert-danger">
+                                <div *ngIf="f.size.errors?.required">
+                                  size is required
+                                </div>
+                                <div *ngIf="f.size.errors?.size">
+                                    size should  valid
+                                </div>
+                                </div>
+                        
+                    </div>
+                    <br>
+                <div class="d-flex">
+                    <h5 style="padding-right:7px ;">Quantity: </h5>
+                    <input class="form-control text-center me-3" placeholder="qty" formControlName="Quantity" id="Quantity" type="text" 
+                        style="max-width: 3rem"  required> 
+                        <div *ngIf = "f.Quantity.touched && f.Quantity.invalid" class="alert alert-danger">
+                            <div *ngIf="f.Quantity.errors?.required">
+                              Quantity is required
+                            </div>
+                            <div *ngIf="f.Quantity.errors?.Quantity">
+                                Quantity should  valid
+                            </div>
+                          </div>
+                </div>
+                <br>
+                <div class="d-flex">
+                    <button class="btn  flex-shrink-0" type="button" style="background-color: #f71a67!important;color: white;" routerLink="/buy/{{ productData.product._id}}" >
+                        <i class="bi bi-heart-fill"></i>
+                        Add to wishlist
+
+                    </button>
+                    <button class="btn  flex-shrink-0" style="margin-left: 2px; background-color: #f71a67!important;color: white;" type="submit" routerLink="/cart/{{ productData.product._id}}">
+                        <i class="bi-cart-fill me-1" ></i>
+                        Add to cart
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+

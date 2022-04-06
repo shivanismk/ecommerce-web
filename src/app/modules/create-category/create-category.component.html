@@ -1,0 +1,23 @@
+
+
+<h2 class="bg-light mb-2 text-center">Add New Product</h2>
+<div  style="border:4px solid #f71a67; padding: 20px; margin-left: 400px;margin-right: 400px;">
+<form [formGroup]="myform" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm"  >
+    <div class="form-row">
+      
+      <div class="col-md-12 mb-3">
+        <label for="validationServer01">category Name</label>
+        <input type="text" formControlName="cname" class="form-control" value="Enter Product Name"  name="category_name" >
+      </div>     
+    </div>
+    <div class="form-row">
+      <div class="col-md-12 mb-">
+        <label for="validationServer03">Description</label>
+        <textarea type="text" formControlName="description" class="form-control" placeholder="Enter category Description"  name="category_description"  >
+        </textarea>
+      </div>
+      </div>
+      <br>
+    <button class="btn" style="background-color: #f71a67!important;color: white;"  type="submit">Submit form</button>
+  </form>
+</div>

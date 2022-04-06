@@ -1,0 +1,168 @@
+<script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="" style="display: flex; padding-left: 50px;">
+    <a class="navbar-brand" routerLink='/' style="font-size: 50px;color: white;"><b>E-Shop</b></a>
+
+    <div class="nav-item dropdown" style="padding-top: 25px;">
+      <a class="navbar-brand" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+        style="font-size: 20px;color: white;padding-left: 30px;"><b>MEN</b></a>
+      <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+        <div style="display: flex;">
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Topwear</b></li>
+            <li class="dropdown-item" value="Kurti" id="Kurti" (click)="onSearch($event)">T-Shirts</li>
+            <li class="dropdown-item" id="Top" (click)="onSearch($event)">Casual Shirts</li>
+            <li class="dropdown-item" id="Tshirts" (click)="onSearch($event)">Formal Shirts</li>
+            <li class="dropdown-item" id="Shirt" (click)="onSearch($event)">Sweatshirts</li>
+            <li class="dropdown-item" id="Dresses" (click)="onSearch($event)">Sweaters</li>
+            <li class="dropdown-item" id="Jumpsuits" (click)="onSearch($event)">Jackets</li>
+            <li class="dropdown-item" id="Trousers & Capris" (click)="onSearch($event)">Blazers & Coats</li>
+            <li class="dropdown-item" id="Shorts & Skirts" (click)="onSearch($event)">Suits</li>
+            <li class="dropdown-item" id="Shrugs" (click)="onSearch($event)">Rain Jackets</li>           
+          </div>
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Indian & Fusion Wear</b></li>
+            <li class="dropdown-item" id="Kurtas & Suits" (click)="onSearch($event)" >Kurtas & Kurta Sets</li>
+            <li class="dropdown-item" id="Ethnic Wear" (click)="onSearch($event)">Sherwanis</li>
+            <li class="dropdown-item" id="Leggings, Salwars & Churidars" (click)="onSearch($event)">Nehru Jackets</li>
+            <li class="dropdown-item" id="Sarees" (click)="onSearch($event)">Dhotis</li>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Bottomwear</b></li>
+            <li class="dropdown-item">Jeans</li>
+            <li class="dropdown-item">Casual Trousers</li>
+            <li class="dropdown-item">Formal Trousers</li>
+            <li class="dropdown-item">Shorts</li>
+            <li class="dropdown-item">Track Pants & Joggers</li>
+          </div>
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Footwear</b></li>
+            <li class="dropdown-item">Flip Flops</li>
+            <li class="dropdown-item">Casual Shoes</li>
+            <li class="dropdown-item">Formal Shoes</li>
+            <li class="dropdown-item">Boots</li>
+            <li class="dropdown-item">Sports Shoes </li>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Sleepwear</b></li>
+            <li class="dropdown-item">Shapewear</li>
+            <li class="dropdown-item">Sleepwear & Loungewear</li>
+            <li class="dropdown-item">Swimwear</li>
+            <!-- <li class="dropdown-item">Boots</li>
+            <li class="dropdown-item">Sports Shoes & Floaters</li> -->
+          </div>
+        </div>
+      </ul>
+
+    </div>
+    <div class="nav-item dropdown" style="padding-top: 25px;">
+      <a class="navbar-brand" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+        style="font-size: 20px;color: white;padding-left: 30px;"><b>WOMEN</b></a>
+      <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+        <div style="display: flex;">
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Western Wear</b></li>
+            <li class="dropdown-item" value="Kurti" id="Kurti" (click)="onSearch($event)">Kurti</li>
+            <li class="dropdown-item" id="Top" (click)="onSearch($event)">Top</li>
+            <li class="dropdown-item" id="Tshirts" (click)="onSearch($event)">Tshirts</li>
+            <li class="dropdown-item" id="Shirt" (click)="onSearch($event)">Shirt</li>
+            <li class="dropdown-item" id="Jeans" (click)="onSearch($event)">Jeans</li>
+            <li class="dropdown-item" id="Dresses" (click)="onSearch($event)">Dresses</li>
+            <li class="dropdown-item" id="Jumpsuits" (click)="onSearch($event)">Jumpsuits</li>
+            <li class="dropdown-item" id="Trousers & Capris" (click)="onSearch($event)">Trousers & Capris</li>
+            <li class="dropdown-item" id="Shorts & Skirts" (click)="onSearch($event)">Shorts & Skirts</li>
+            <li class="dropdown-item" id="Shrugs" (click)="onSearch($event)">Shrugs</li>           
+          </div>
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Indian & Fusion Wear</b></li>
+            <li class="dropdown-item" id="Kurtas & Suits" (click)="onSearch($event)" >Kurtas & Suits</li>
+            <li class="dropdown-item" id="Ethnic Wear" (click)="onSearch($event)">Ethnic Wear</li>
+            <li class="dropdown-item" id="Leggings, Salwars & Churidars" (click)="onSearch($event)">Leggings, Salwars & Churidars</li>
+            <li class="dropdown-item" id="Sarees" (click)="onSearch($event)">Sarees</li>
+            <li class="dropdown-item" id="Lehenga Cholis" (click)="onSearch($event)">Lehenga Cholis</li>
+            <li class="dropdown-item" id="Dupattas & Shawls" (click)="onSearch($event)">Dupattas & Shawls</li>
+            <li class="dropdown-item" id="Kurtas & Suits" (click)="onSearch($event)">Kurtas & Suits</li>
+          </div>
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Footwear</b></li>
+            <li class="dropdown-item">Flats</li>
+            <li class="dropdown-item">Casual Shoes</li>
+            <li class="dropdown-item">Heels</li>
+            <li class="dropdown-item">Boots</li>
+            <li class="dropdown-item">Sports Shoes & Floaters</li>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Sleepwear</b></li>
+            <li class="dropdown-item">Shapewear</li>
+            <li class="dropdown-item">Sleepwear & Loungewear</li>
+            <li class="dropdown-item">Swimwear</li>
+            <!-- <li class="dropdown-item">Boots</li>
+            <li class="dropdown-item">Sports Shoes & Floaters</li> -->
+          </div>
+        </div>
+      </ul>
+    </div>
+    <div class="nav-item dropdown" style="padding-top: 25px;">
+      <a class="navbar-brand" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+        style="font-size: 20px;color: white;padding-left: 30px;"><b>KIDS</b></a>
+      <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+        <div style="display: flex;">
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Western Wear</b></li>
+            <li class="dropdown-item" value="Kurti" id="Kurti" (click)="onSearch($event)">Kurti</li>
+            <li class="dropdown-item" id="Top" (click)="onSearch($event)">Top</li>
+            <li class="dropdown-item" id="Tshirts" (click)="onSearch($event)">Tshirts</li>
+            <li class="dropdown-item" id="Shirt" (click)="onSearch($event)">Shirt</li>
+            <li class="dropdown-item" id="Dresses" (click)="onSearch($event)">Dresses</li>
+            <li class="dropdown-item" id="Jumpsuits" (click)="onSearch($event)">Jumpsuits</li>
+            <li class="dropdown-item" id="Trousers & Capris" (click)="onSearch($event)">Trousers & Capris</li>
+            <li class="dropdown-item" id="Shorts & Skirts" (click)="onSearch($event)">Shorts & Skirts</li>
+            <li class="dropdown-item" id="Shrugs" (click)="onSearch($event)">Shrugs</li>           
+          </div>
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Indian & Fusion Wear</b></li>
+            <li class="dropdown-item" id="Kurtas & Suits" (click)="onSearch($event)" >Kurtas & Suits</li>
+            <li class="dropdown-item" id="Ethnic Wear" (click)="onSearch($event)">Ethnic Wear</li>
+            <li class="dropdown-item" id="Leggings, Salwars & Churidars" (click)="onSearch($event)">Leggings, Salwars & Churidars</li>
+            <li class="dropdown-item" id="Sarees" (click)="onSearch($event)">Sarees</li>
+            <li class="dropdown-item" id="Lehenga Cholis" (click)="onSearch($event)">Lehenga Cholis</li>
+            <li class="dropdown-item" id="Dupattas & Shawls" (click)="onSearch($event)">Dupattas & Shawls</li>
+            <li class="dropdown-item" id="Kurtas & Suits" (click)="onSearch($event)">Kurtas & Suits</li>
+          </div>
+          <div>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Footwear</b></li>
+            <li class="dropdown-item">Flats</li>
+            <li class="dropdown-item">Casual Shoes</li>
+            <li class="dropdown-item">Heels</li>
+            <li class="dropdown-item">Boots</li>
+            <li class="dropdown-item">Sports Shoes & Floaters</li>
+            <li class="dropdown-item" style="color: tomato;font-size:larger;"><b>Sleepwear</b></li>
+            <li class="dropdown-item">Shapewear</li>
+            <li class="dropdown-item">Sleepwear & Loungewear</li>
+            <li class="dropdown-item">Swimwear</li>
+            <!-- <li class="dropdown-item">Boots</li>
+            <li class="dropdown-item">Sports Shoes & Floaters</li> -->
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive" style="padding-left: 100px;">
+      <ul class="navbar-nav ml-auto ">
+        <li class="dropdown">
+          <a class="nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <b><i class="bi bi-person" style="color: white;font-size: 29px;"></i></b>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a *ngIf="isLoggedIn()" class="dropdown-item text-center" routerLink='/login'>Login</a></li>
+            <li><a *ngIf="!isLoggedIn()" (click)=logout() class="dropdown-item text-center">Log Out</a></li>
+            <li><a *ngIf="isLoggedIn()" class="dropdown-item text-center" routerLink='/register'>Register</a></li>
+          </ul>
+        </li>
+        <li class="nav-item" style="padding-top: 6px; padding-left: 10px; font-size: 29px;">
+          <i class="bi bi-cart4" style="color: white;" routerLink='/cart'></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

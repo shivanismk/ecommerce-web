@@ -1,0 +1,229 @@
+<app-header></app-header>
+
+<div class="mt-5 mb-5" id="receipt">
+  <a name="" style="position: relative; float: right; " id="divcolor" class="btn" href="javascript:;;" role="button"
+    (click)="downloadReceipt()"><i class="fa fa-download"></i>Dawnload pdf</a>
+
+
+  <div class="container">
+    <h2 class="my-5 h2 text-center" style="color: #f71a67!important;">Checkout form</h2>
+    <div class="row">
+      <div class="col-md-8 mb-4">
+        <div class="card">
+          <form [formGroup]="myform" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm"
+            style=" padding: 30px;">
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <div class="md-form ">
+                  <label for="firstName">First name<span class="text">*</span></label>
+                  <input type="text" id="fname" class="form-control" formControlName="fname"
+                    [ngClass]="{ 'is-invalid': submitted && f.fname.errors }">
+                  <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                    <div *ngIf="f.fname.errors.required">First name is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-2">
+                <div class="md-form">
+                  <label for="lastName" class="">Last name<span class="text">*</span></label>
+                  <input type="text" id="lastName" class="form-control" formControlName="lname"
+                    [ngClass]="{ 'is-invalid': submitted && f.lname.errors }">
+                  <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+                    <div *ngIf="f.lname.errors.required"> Last name is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+
+            <div class="md-form input-group pl-0 mb-5">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+              </div>
+              <input type="text" class="form-control py-0" formControlName="uname" placeholder="Username"
+                aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted && f.uname.errors }">
+              <div *ngIf="submitted && f.uname.errors" class="invalid-feedback">
+                <div *ngIf="f.uname.errors.required">User name is required</div>
+              </div>
+            </div>
+
+
+            <div class="md-form mb-5">
+              <label for="email" class="active">Email<span class="text">*</span></label>
+              <input type="text" id="email" class="form-control" formControlName="email"
+                placeholder="youremail@example.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+              </div>
+            </div>
+
+
+
+            <div class="md-form mb-5">
+              <label for="mobile" class="active">Mobile<span class="text">*</span></label>
+              <input type="tel" pattern="[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{3}" id="mobile" class="form-control"
+                formControlName="mobile" placeholder="9999999999"
+                [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }">
+
+              <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                <div *ngIf="f.mobile.errors.required">mobile no. is required</div>
+              </div>
+            </div>
+
+            <div class="md-form mb-5">
+              <label for="address" class="active">Address <span class="text">*</span></label>
+              <input type="text" id="address" class="form-control" formControlName="address" placeholder="Address"
+                [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required">Address is required</div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <label for="state">State<span class="text">*</span></label>
+                <input type="text" class="form-control" formControlName="state" id="state"
+                  [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                  <div *ngIf="f.state.errors.required">state is required</div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <label for="city">City<span class="text">*</span></label>
+                <input type="text" class="form-control" formControlName="city" id="city"
+                  [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                  <div *ngIf="f.city.errors.required">city is required</div>
+                </div>
+              </div>
+
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <label for="zip">Zip<span class="text">*</span></label>
+                <input type="text" class="form-control" formControlName="zip" id="zip"
+                  [ngClass]="{ 'is-invalid': submitted && f.zip.errors }">
+                <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+                  <div *ngIf="f.zip.errors.required">zip code required</div>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <div class="md-form mb-5">
+              <label for="email" class="active">Card Details<span class="text">*</span></label>
+              <div class="row">
+                <div class="col-md-4">
+                  <input type="text" id="email" class="form-control" formControlName="cardnumber" placeholder="card number"
+                    [ngClass]="{ 'is-invalid': submitted && f.cardnumber.errors }">
+                  <div *ngIf="submitted && f.cardnumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.cardnumber.errors.required">card number</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" id="email" class="form-control" formControlName="expdate" placeholder="YY/MM"
+                    [ngClass]="{ 'is-invalid': submitted && f.expdate.errors }">
+                  <div *ngIf="submitted && f.expdate.errors" class="invalid-feedback">
+                    <div *ngIf="f.expdate.errors.required">card expaire date</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" id="email" class="form-control" formControlName="cvc" placeholder="CVC"
+                    [ngClass]="{ 'is-invalid': submitted && f.cvc.errors }">
+                  <div *ngIf="submitted && f.cvc.errors" class="invalid-feedback">
+                    <div *ngIf="f.cvc.errors.required">card cvc</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="row" style="padding-left: 30px;">
+              <div class="col-lg-4 col-md-6 mb-4">
+                <input id="cash" name="paymentMethod" type="radio" class="custom-control-input">
+                <label class="custom-control-label" for="cash">Cash on delivery</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-6 mb-4">
+                <label>Amount</label>
+                <input class="form-control" formControlName="amount" type="text" value="{{totalPrice}}">
+              </div>
+            </div>
+
+            <button id="divcolor" class="btn btn-lg btn-block waves-effect waves-light" type="submit"
+              routerLink="/buy" >Continue to
+              checkout</button>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+          </form>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span style="color: #f71a67!important;">Your cart</span>
+          <span class="badge badge-secondary badge-pill">3</span>
+        </h4>
+        <div class="list-group-item mb-3 ">
+          <table class="table  justify-content-between">
+            <thead>
+              <tr class="table-danger">
+                <th scope="col">No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of productData; let i= index;">
+                <th scope="row">{{i+1}}</th>
+                <td>{{p.pname}}</td>
+                <td>{{p.Quantity}}</td>
+                <td>{{p.price*p.Quantity}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>Rs. {{totalPrice}}</strong>
+          </div>
+        </div>
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username"
+              aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="makePayment(totalPrice)">Pay With Stripe</button>
+ 
+<div *ngIf="success">
+  <h1>Your Payment is complete successfully</h1>
+</div>
+<div *ngIf="failure">
+    <h1>Some Error is taken place inside the payment</h1>
+</div>
+
+
+
+<!-- 
+<form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
+  <input type="text" formControlName="name" placeholder="Jane Doe">
+  <ngx-stripe-card
+    [options]="cardOptions"
+    [elementsOptions]="elementsOptions"
+  ></ngx-stripe-card>
+  <button type="submit">
+    CREATE TOKEN
+  </button>
+</form> -->

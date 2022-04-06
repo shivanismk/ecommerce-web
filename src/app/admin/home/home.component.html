@@ -1,0 +1,372 @@
+
+<div style="padding-top: 40px;">
+    <div class="page-wrapper chiller-theme toggled" style="display: inline-flex;">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">pro sidebar</a>
+                    <div id="close-sidebar">
+                        <i style="color: white;" class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded"
+                            src="{{hostname+regi.url}}"
+                            alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            <strong>{{regi.fname}} {{regi.lname}}</strong>
+                        </span>
+                        <span class="user-role" style="color: white;">Administrator</span>
+                        <span class="user-status">
+                            <i style="color: rgb(10, 250, 62);" class="fa fa-circle"></i>
+                            <span style="padding-left: 2px;">Online</span>
+                        </span>
+                        <span style="padding-left: 2px;" (click)=logout()>Logout</span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <!-- <div class="sidebar-search">
+          <div>
+            <div class="input-group">
+              <input type="text" class="form-control search-menu" placeholder="Search...">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i style="color: white;" class="fa fa-search" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i style="color: white;" class="fa fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                                <!-- <span class="badge badge-pill badge-warning">New</span> -->
+                            </a>
+                            <!-- <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a href="#">Dashboard 1
+                      <span class="badge badge-pill badge-success">Pro</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">Dashboard 2</a>
+                  </li>
+                  <li>
+                    <a href="#">Dashboard 3</a>
+                  </li>
+                </ul>
+              </div> -->
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
+                                aria-expanded="false" aria-controls="collapseLayouts">
+                                <i style="color: white;" class="fa fa-shopping-cart"></i>
+                                <span>E-commerce</span>
+                                <!-- <span class="badge badge-pill badge-danger">3</span> -->
+                            </a>
+                            <div class="sidebar-submenu" class="collapse" id="collapseLayouts"
+                                aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <ul>
+                                    <li>
+                                        <a style="color: white;" routerLink="/creat-product">Add Product</a>
+                                    </li>
+                                    <li>
+                                        <a style="color: white;" routerLink="/create-category">Add Category</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseComponent"
+                                aria-expanded="false" aria-controls="collapseComponent">
+                                <i style="color: white;" class="far fa-gem"></i>
+                                <span>Components</span>
+                            </a>
+                            <div class="sidebar-submenu" class="collapse" id="collapseComponent">
+                                <ul>
+
+
+                                    <li>
+                                        <a style="color: white;" routerLink='/ad-product-list'>Products
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a style="color: white;" routerLink='/category'>Category</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="color: white;" routerLink='/orders'>orders</a>
+                                    </li>
+                                    <li>
+                                        <a style="color: white;" href="#">Tables</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a style="color: white;" href="#">Icons</a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a style="color: white;" href="#">Forms</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i style="color: white;" class="fa fa-chart-line"></i>
+                                <span>Charts</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Pie chart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Line chart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bar chart</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Histogram</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i style="color: white;" class="fa fa-globe"></i>
+                                <span>Maps</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Google maps</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Open street map</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="header-menu">
+                            <span>Extra</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i style="color: white;" class="fa fa-book"></i>
+                                <span>Documentation</span>
+                                <!-- <                                                                                                                                                                                                                                -->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i style="color: white;" class="fa fa-calendar"></i>
+                                <span>Calendar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i style="color: white;" class="fa fa-folder"></i>
+                                <span>Examples</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            
+
+        </main>
+       
+        <div id="layoutSidenav_content" class="col-md-10" style="padding-left: 30px;">
+            <main>
+                <div>
+                    <div>
+                        <h1 class="">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Product List</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" routerLink="/ad-product-list">View
+                                            Product List</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Order List</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" routerLink="/creat-product">View
+                                            Order List</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">Category List</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" routerLink="/view-category-list">View
+                                            All Category</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Danger Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Area Chart Example
+                                    </div>
+                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Bar Chart Example
+                                    </div>
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            User List
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr class="table">
+                                        <th scope="col-lg-2">S. No.</th>
+                                        <th scope="col-lg-8">Name</th>
+                                        <th scope="col-lg-4">Email</th>
+                                        <th scope="col">Mobile No.</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr *ngFor="let user of userList;let i= index;">
+                                        <th class="col-lg-1" scope="row">{{i+1}}</th>
+                                        <td class="col-md-5">{{user.fname}} {{user.lname}}</td>
+                                        <td class="col-md-4">{{user.email}}</td>
+                                        <td>{{user.phone}}</td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            Product List
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr class="table">
+                                        <th scope="col">S.No.</th>
+                                        <th scope="col">Product detail</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of productList;  let i= index;">
+
+                                        <th scope="row " class="col-md-2">{{i+1}}.</th>
+                                        <!-- <td>Mark</td> -->
+                                        <td>
+                                            <div class="row mb-8">
+                                                <div class="col-md-2 ">
+                                                    <img class="img-fluid w-100" src="{{hostname+product.url}}">
+                                                </div>
+
+                                                <div class="col-md-4 " style="padding-left: 40px;">
+                                                    <p> {{product.pname}}</p>
+                                                    <p>{{product.price}}</p>
+                                                </div>
+
+
+                                                <div class="col-md-3">
+                                                    <h2>
+                                                        <a routerLink='/update-product/{{product.id}}'> <i
+                                                                style="color: green;"
+                                                                class="bi bi-pencil-square"></i></a>
+                                                    </h2>
+                                                </div>
+                                                <div class="col-md-1 ">
+                                                    <h2><a routerLink='/delete-product/{{product.id}}'><i
+                                                                style="color: #f71a67;" class="bi bi-trash"></i></a>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </td>
+                                       
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- <div style="padding-top: 10px;">
+                    <app-ad-product-list></app-ad-product-list>
+                </div> -->
+                </div>
+            </main>
+
+        </div>
+
+
+
+
+    </div>
+</div>

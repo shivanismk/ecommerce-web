@@ -1,0 +1,55 @@
+<h1 style="text-align: center;color: green;">Order List</h1>
+<div class="container">
+  
+<table class="table">
+    <thead>
+      <tr class="table-success">
+        <th scope="col">S.No.</th>
+        <th scope="col">Ordered item</th>
+        
+      </tr>
+    </thead>
+    <tbody *ngFor="let order of orderlist; let i= index;" >
+      <h6></h6>
+      <tr>
+        <th scope="row col-md-1">{{i+1}}.</th>
+        <td>
+            <div class="row mb-12">
+                <div class=" col-md-5" >
+                  <div class="row" *ngFor="let o of orders">
+                    <div class="col-md-3" >
+                            <img class="img-fluid w-100" src="{{hostname+o.url }}" >
+                      </div>
+                      <div class="col-md-4">
+                        <p > pro name:{{o.pname}} </p>
+                        <p  >size:{{o.size}}</p>
+                        <p >  Qty:{{o.Quantity}}</p>
+                        <hr>
+                      </div>
+                </div>
+                </div>
+               
+                <div class="col-md-5" >
+           
+                      <p  >Name:{{ order.fname }}{{ order.lname }}</p>
+                      <p  >Email: {{ order.email }}</p>
+                      <p  >Mo. {{ order.mobile }}</p>
+                      <p  >Add: {{ order.address }}</p> 
+                      <p  > {{ order.state }} ,{{ order.city }},{{ order.zip }}</p>
+              </div>
+                <div class="col-md-1 " >
+                  <a routerLink='/delete-order/{{order._id}}'> <i class="bi bi-trash"></i></a>
+                </div>
+
+            </div>
+        </td>
+        
+      </tr>
+      
+      
+    </tbody>
+  </table>
+  <!-- <div class="col-md-4 text-right">
+    <button class="btn btn-success  btn-block" (click)="dawnloadPDF()">Download PDF</button>
+  </div> -->
+</div>

@@ -1,0 +1,73 @@
+<p>update-product works!</p>
+
+<h2 class="bg-light mb-2 text-center">Update Product</h2>
+<form [formGroup]="myform" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm" style=" padding-left: 470px;" >
+    <div class="form-row">
+      
+      <div class="col-md-6 mb-3">
+        <label for="validationServer01">Product Name</label>
+        <input type="text" formControlName="pname" class="form-control" value="Enter Product Name"  name="product_name" >
+      </div>
+      
+      <div class="col-md-6 mb-3">
+        <label for="url">Image</label>
+        <input formControlName="url" id="url" type="file" class="form-control" (change)=onSelectedFile($event)/>
+        
+    </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-">
+        <label for="validationServer03">Description</label>
+        <textarea type="text" formControlName="description" class="form-control" placeholder="Enter Product Description"  name="product_description"  >
+        </textarea>
+      </div><br>
+      <div class="col-md-6 mb-3">
+        <label>Rating</label>
+        <select class="custom-select" formControlName="rating"  name="product_rating" >
+          <option selected value="">Choose...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationServer01">Product Price</label>
+        <input type="text" formControlName="price" class="form-control" value="Enter Product Name"  name="product_price" >
+      </div>
+        <!-- <div class="col-md-6 mb-3">
+          <label for="validationServer02">Is Avaiable</label>
+          <select class="custom-select" required name="product_available" ngModel>
+            <option selected value="">Choose...</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div> -->
+      </div>
+
+    <button class="btn btn-primary" type="submit"  data-target="#exampleModal">submit</button>
+   
+  </form>
+
+  <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
