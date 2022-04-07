@@ -7,26 +7,26 @@
             <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{hostname+productData.product.url}}"
                     alt="..."></div>
             <div class="col-md-6">
-               
+
                 <h1 class="display-5 fw-bolder" style="color: #f71a67!important;">{{ productData.product.pname }}</h1>
-                
+
                 <div class="d-flex  small text-warning ">
                     <div class="">{{ productData.product.rating}}Stars</div>
                 </div>
                 <div class="fs-5 mb-5">
                     <h5>Rs.{{productData. product.price }}/-</h5>
-                    
+
                 </div>
-                
-                
+
+
                 <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem
                     modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus
                     ipsam minima ea iste laborum vero?</p>
-                   
+
                     <form [formGroup]="myform" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm">
                     <div class="d-flex">
                         <h5 style="padding-right:7px ;">Size: </h5>
-                        
+
                               <select name="size" id="size" formControlName="size" required>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
@@ -42,13 +42,13 @@
                                     size should  valid
                                 </div>
                                 </div>
-                        
+
                     </div>
                     <br>
                 <div class="d-flex">
                     <h5 style="padding-right:7px ;">Quantity: </h5>
-                    <input class="form-control text-center me-3" placeholder="qty" formControlName="Quantity" id="Quantity" type="text" 
-                        style="max-width: 3rem"  required> 
+                    <input class="form-control text-center me-3" placeholder="qty" formControlName="Quantity" id="Quantity" type="text"
+                        style="max-width: 3rem"  required>
                         <div *ngIf = "f.Quantity.touched && f.Quantity.invalid" class="alert alert-danger">
                             <div *ngIf="f.Quantity.errors?.required">
                               Quantity is required

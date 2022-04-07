@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(formDirective: FormGroupDirective): void {
+    console.log(this.myform.value);
     this.submitted = true;
     // stop here if form is invalid
     if (this.myform.invalid) {

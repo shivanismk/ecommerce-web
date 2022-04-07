@@ -11,7 +11,7 @@ import { Register } from '../models/register';
 export class LoginService {
 
   constructor(private client:HttpClient,) { }
-  loginuser(data:Register):Observable<any>{
+  loginuser(data:any):Observable<any>{
     return this.client.post(`${environment.url}/login`,data).
     pipe(map((result:any)=>result))
   }

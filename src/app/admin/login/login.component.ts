@@ -41,15 +41,15 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(formDirective: FormGroupDirective): void {
-
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.myform.invalid) {
-      return;
-    }
-
-
     console.log(this.myform.value)
+    // this.submitted = true;
+    // // stop here if form is invalid
+    // if (this.myform.invalid) {
+    //   return;
+    // }
+
+
+
     this.loginservice.loginuser(this.myform.value).subscribe
       ({
         next: (result: any) => {
