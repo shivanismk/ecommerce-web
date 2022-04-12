@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-view-product',
   templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.css']
+  styleUrls: ['./view-product.component.css'],
 })
 export class ViewProductComponent implements OnInit {
   productData: Product[] | any;
@@ -18,31 +18,28 @@ export class ViewProductComponent implements OnInit {
   hostname: string | any;
   myform: any;
 
-  
-
-  constructor(private fb: FormBuilder,  private router:Router, private cartService:CartService, private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private cartService: CartService,
+    private productService: ProductService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-
     this.myform = this.fb.group({
+      size: ['S', [Validators.required]],
+      Quantity: ['1', [Validators.required]],
+    });
 
-      size: ['S',[Validators.required]],
-      Quantity: ['1',[Validators.required]]
-
-    })
-
-    this.hostname = environment.hosturl
+    this.hostname = environment.hosturl;
     this.route.params.subscribe((data: any) => {
       this.productId = data.id;
       console.log(data.id);
-
-
-    })
+    });
     this.productService.viewProduct(this.productId).subscribe((data) => {
-
       this.productData = data;
       console.log(this.productData);
-
     });
   }
 
@@ -50,28 +47,21 @@ export class ViewProductComponent implements OnInit {
     return this.myform.controls;
   }
   onSubmit(formDirective: FormGroupDirective): void {
-    console.log(this.myform.value)
+    console.log(this.myform.value);
 
-    this.cartService.addOrder(this.myform.value,this.productId).subscribe
-      ({
-        next: (result: any) => {
-          console.log(result);
-          this.router.navigate(['/cart'])
-          Swal.fire({
-            title: 'Added!',
-            text: 'Added product successfully',
-            icon: 'success',
-            confirmButtonText: 'Woow'
-          });
-        },
-        error: (e: any) => { },
-        complete: () => { }
-      })
+    this.cartService.addOrder(this.myform.value, this.productId).subscribe({
+      next: (result: any) => {
+        console.log(result);
+        this.router.navigate(['/cart',this.productId]);
+        Swal.fire({
+          title: 'Added!',
+          text: 'Added product successfully',
+          icon: 'success',
+          confirmButtonText: 'Woow',
+        });
+      },
+      error: (e: any) => {},
+      complete: () => {},
+    });
   }
 }
-
-
-
-
-
-

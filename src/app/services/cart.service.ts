@@ -19,7 +19,7 @@ export class CartService {
   // }
   addOrder(data:any,prodid:any): Observable<any>{
     return this.httpClient.post(`${environment.url}/addCart/${prodid}`,data).
-    pipe(map((result:any)=>result)); 
+    pipe(map((result:any)=>result));
  }
 
 

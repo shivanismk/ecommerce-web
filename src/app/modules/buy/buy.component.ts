@@ -15,7 +15,7 @@ import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-
   selector: 'app-buy',
   templateUrl: './buy.component.html',
   styleUrls: ['./buy.component.css']
-})  
+})
 export class BuyComponent implements OnInit {
   submitted = false;
   error = '';
@@ -25,9 +25,9 @@ export class BuyComponent implements OnInit {
   productData:Product| any;
   totalPrice = 0;
   paymentHandler: any = null;
-  success: boolean = false 
+  success: boolean = false
   failure:boolean = false
- 
+
 
   @ViewChild(StripeCardComponent)
   card!: StripeCardComponent;
@@ -76,16 +76,16 @@ export class BuyComponent implements OnInit {
       cvc         : ['']
 
     })
-  
-  this.cartService.viewCart().subscribe((data)=> {    
+
+  this.cartService.viewCart().subscribe((data)=> {
    this.productData = data.cart;
-      console.log(this.productData);    
+      console.log(this.productData);
       for (let index = 0; index <   data.cart.length; index++) {
         const ele =   data.cart[index];
-        console.log(ele.Quantity);       
+        console.log(ele.Quantity);
         this.totalPrice =  this.totalPrice + (ele.price*ele.Quantity)
         var tt=this.totalPrice;
-    }      
+    }
    });
 
    this.invokeStripe();
@@ -93,7 +93,7 @@ export class BuyComponent implements OnInit {
 
 
 
-  
+
   // createToken(): void {
   //   const name = this.stripeTest.get('name').value;
   //   this.stripeService
@@ -133,7 +133,7 @@ export class BuyComponent implements OnInit {
      return;
     }
     console.log(this.myform.value);
-    
+
     this.checkoutservice.checkout(this.myform.value,).subscribe
       ({
         next: (result: any) => {
@@ -150,7 +150,7 @@ export class BuyComponent implements OnInit {
         complete: () => { }
       })
   }
-  
+
 
   makePayment(amount: number) {
     const paymentHandler = (<any>window).StripeCheckout.configure({
@@ -161,7 +161,7 @@ export class BuyComponent implements OnInit {
         paymentstripe(stripeToken);
       },
     });
- 
+
     const paymentstripe = (stripeToken: any) => {
       this.checkoutservice.makePayment(stripeToken).subscribe((data: any) => {
         console.log(data);
@@ -173,14 +173,14 @@ export class BuyComponent implements OnInit {
         }
       });
     };
- 
+
     paymentHandler.open({
       name: 'Coding Shiksha',
       description: 'This is a sample pdf file',
       amount: amount * 100,
     });
   }
- 
+
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
       const script = window.document.createElement('script');
@@ -197,7 +197,7 @@ export class BuyComponent implements OnInit {
           },
         });
       };
- 
+
       window.document.body.appendChild(script);
     }
   }
