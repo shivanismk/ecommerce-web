@@ -11,7 +11,14 @@
                 <h1 class="display-5 fw-bolder" style="color: #f71a67!important;">{{ productData.product.pname }}</h1>
 
                 <div class="d-flex  small text-warning ">
-                    <div class="">{{ productData.product.rating}}Stars</div>
+                    <!-- <div class="">{{ productData.product.rating}}Stars</div> -->
+                    <div class="d-flex justify-content-center small text-warning">
+                        <div *ngIf= "productData.product.rating >=1"><i class="bi bi-star-fill"></i></div>
+                        <div *ngIf="productData.product.rating >=2"> <i class="bi bi-star-fill"></i></div>
+                        <div *ngIf="productData.product.rating >=3"><i class="bi bi-star-fill"></i></div>
+                        <div *ngIf="productData.product.rating >=4"><i class="bi bi-star-fill"></i></div>
+                        <div *ngIf="productData.product.rating >=5"><i class="bi bi-star-fill"></i></div>                                                      
+                    </div>
                 </div>
                 <div class="fs-5 mb-5">
                     <h5>Rs.{{productData. product.price }}/-</h5>
@@ -47,13 +54,13 @@
                     <br>
                 <div class="d-flex">
                     <h5 style="padding-right:7px ;">Quantity: </h5>
-                    <input class="form-control text-center me-3" placeholder="qty" formControlName="Quantity" id="Quantity" type="text"
+                    <input class="form-control text-center me-3" placeholder="qty" formControlName="quantity" id="quantity" type="text"
                         style="max-width: 3rem"  required>
-                        <div *ngIf = "f.Quantity.touched && f.Quantity.invalid" class="alert alert-danger">
-                            <div *ngIf="f.Quantity.errors?.required">
+                        <div *ngIf = "f.quantity.touched && f.quantity.invalid" class="alert alert-danger">
+                            <div *ngIf="f.quantity.errors?.required">
                               Quantity is required
                             </div>
-                            <div *ngIf="f.Quantity.errors?.Quantity">
+                            <div *ngIf="f.quantity.errors?.quantity">
                                 Quantity should  valid
                             </div>
                           </div>
@@ -76,7 +83,7 @@
     </div>
 </section>
 
-
+<app-footer></app-footer>
 
 
 

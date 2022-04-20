@@ -1,5 +1,6 @@
 export interface Product {
     // product: any;
+    p:any;
     id: string;
     for:string;
     catName: string;

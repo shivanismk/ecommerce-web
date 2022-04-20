@@ -16,9 +16,11 @@ export class HeaderComponent implements OnInit {
   filteredString = [''];
   catData: any;
   dataTraget: any;
+  userid: any;
   constructor(private router: Router, private login: LoginService, private productsService: ProductService, private catService: CategoryService) { }
 
   ngOnInit(): void {
+    this.userid = localStorage.getItem('userId')
     this.productsService.viewProductList().subscribe({
       next: (data: any) => {
         this.productList = data.product

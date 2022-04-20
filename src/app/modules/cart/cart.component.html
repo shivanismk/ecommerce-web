@@ -1,8 +1,58 @@
-
 <app-header></app-header>
 
+<!-- <div class="card" style="padding: 30px;">
+  <div class="topmenu row">
+    <div class="col-sm">col-sm</div>
+    <div class="col-sm d-flex justify-content-around">BAG-----ADDRESSS----PAYMENT</div>
+    <div class="col-sm d-flex justify-content-around">100% SERCURE</div>
+  </div>
+</div>
+<div class="container">
 
+  <div class="card" style="padding: 30px;">
+    <div class="row">
+      <div class="card col-sm-8 d-flex justify-content-around">
+        <div class="zipblock row ">
+          <div class="col-sm-10 justify-content-start">Deliver to: <b>7777777</b></div>
+          <div class="col-sm-2  justify-content-end" type="btn btn-block">add</div>
+        </div>
+      </div>
+      <div class="card col-sm-4 d-flex justify-content-around" >
+      <div> COUPONS</div>
+      <div>
+        <div class="row ">
+          <div class="col-sm-10 justify-content-start">Deliver to: 111111</div>
+          <div class="col-sm-2  justify-content-end" type="btn btn-block">add</div>
+        </div> 
+        <div class="">gggggg</div>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="card col-sm-8 d-flex justify-content-around">
+        <div class="zipblock row ">
+          <div class="col-sm justify-content-end" type="btn btn-block"><b>Available Offers</b></div>
+          <div>1. hhhh</div>
+          <div>2. gggggggg</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md">
+        <B>0/0 ITEM SELECTED </B>
+      </div>
+      <div class="col-md">
+        REMOVE | MOVE TO LIST
+      </div>
+    </div>
+<div class="row">
+<div class="card ">
 
+</div>
+</div>
+  </div>
+
+</div> -->
 
 <div class="container">
   <h2 class="my-5 h2 text-center" style="color: #f71a67!important;">Shopping Cart</h2>
@@ -20,64 +70,67 @@
         <th scope="col">Remove</th>
       </tr>
     </thead>
-    <tbody >
-     
-      <tr  *ngFor="let product of productData;  let i= index;" >
-        <td scope="row col-md-1" >{{i+1}}.</td>
-        <td class="col-md-1" >
+    <tbody>
+
+      <tr *ngFor="let product of productData;  let i= index;">
+        <td scope="row col-md-1">{{i+1}}.</td>
+        <td class="col-md-1">
           <img class="img-fluid w-100" src="{{hostname+product.url}}" alt="Sample">
         </td>
-        <td class="col-md-2" >
-            <p>
+        <td class="col-md-2">
+          <p>
             {{product.pname}}
-           </p>  
+          </p>
         </td>
         <td class="col-md-2">
           Rs. {{product.price}}/-
-         </td>
+        </td>
 
         <td class="col-md-2">
           <div class="def-number-input number-input safari_only mb-0 ">
-            {{product.Quantity}}
-          <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus">-</button> -->
-          <!-- <input class="number" min="0" name="quantity" value="1" type="number"> -->
-          <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus">+</button> -->
-        </div></td>
+            {{product.quantity}}
+            <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus">-</button> -->
+            <!-- <input class="number" min="0" name="quantity" value="1" type="number"> -->
+            <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus">+</button> -->
+          </div>
+        </td>
         <td class="col-md-2">
           <div class="">
-           
-                {{product.size}}
-          <!-- <input class="number" min="0" name="quantity" value="1" type="number"> -->
-        </div>
-      </td>
+
+            {{product.size}}
+            <!-- <input class="number" min="0" name="quantity" value="1" type="number"> -->
+          </div>
+        </td>
 
         <td class="col-md-2">
-         
-            Rs. {{product.price*product.Quantity}}/-         
-        </td> 
-         <td class="col-md-2">
-          <a  (click) = "onDelete(product._id)"> <i class="bi bi-trash"></i></a>
-         </td>  
-      </tr> 
-    
+
+          Rs. {{product.price*product.quantity}}/-
+        </td>
+        <td class="col-md-2">
+          <a (click)="onDelete(product._id)"> <i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+
     </tbody>
   </table>
 
   <div class="row">
     <div class="col">
-      <button type="button" style="background-color: #f71a67!important;color: white;"  class="btn  btn-block waves-effect waves-light" routerLink='/buy' >go to
-        checkout</button>
+      <button type="button" style="background-color: #f71a67!important;color: white;"
+        class="btn  btn-block waves-effect waves-light" routerLink='/buy/{{userid}}'>Order Place</button>
 
     </div>
     <div class="col">
-     <h4 >  Total Price:<span style="color: #f71a67!important" > {{totalPrice}}/-</span>  </h4>
+      <h4> Total Price:<span style="color: #f71a67!important"> {{totalPrice}}/-</span> </h4>
     </div>
-  
+
   </div>
-   <p class=" mb-0" style="padding-top: 40px;color: #f71a67;"><i style="color: #f71a67;" class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
-              items to your cart does not mean booking them.</p>
+  <p class=" mb-0" style="padding-top: 40px;color: #f71a67;"><i style="color: #f71a67;"
+      class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+    items to your cart does not mean booking them.</p>
 
 </div>
 
 
 
+<app-footer></app-footer>

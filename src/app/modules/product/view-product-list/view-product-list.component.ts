@@ -17,8 +17,7 @@ export class ViewProductListComponent implements OnInit {
   searchTerm:string | any
   products: any;
   order: any;
-  // a:any;
-  // b:any
+  p: number = 1;
   data: Product[]=[];
   constructor(private productsService:ProductService,private route:ActivatedRoute) { }
 

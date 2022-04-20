@@ -47,6 +47,9 @@ clear(){
 setRoles(roles:any){
   localStorage.setItem('roles',roles);
 }
+setUserId(userId:any){
+  localStorage.setItem('userId',userId);
+}
 
 getRoles(){
 return localStorage.getItem('roles');

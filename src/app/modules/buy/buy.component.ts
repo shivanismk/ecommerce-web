@@ -50,6 +50,7 @@ export class BuyComponent implements OnInit {
   elementsOptions: StripeElementsOptions = {
     locale: 'es'
   };
+  userid:any;
  constructor(private fb: FormBuilder,
      private cartService: CartService,
       private route:ActivatedRoute,
@@ -76,19 +77,24 @@ export class BuyComponent implements OnInit {
       cvc         : ['']
 
     })
-
-  this.cartService.viewCart().subscribe((data)=> {
-   this.productData = data.cart;
+    
+    this.route.params.subscribe((data)=>{
+      this.userid=data.id
+    })
+  this.cartService.viewCart(this.userid ).subscribe((result)=> {
+   this.productData = result;
       console.log(this.productData);
-      for (let index = 0; index <   data.cart.length; index++) {
-        const ele =   data.cart[index];
-        console.log(ele.Quantity);
-        this.totalPrice =  this.totalPrice + (ele.price*ele.Quantity)
-        var tt=this.totalPrice;
+      for (let index = 0; index < result.length; index++) {
+        const ele =   result[index];
+        console.log(ele.quantity);
+        this.totalPrice =  this.totalPrice + (ele.price*ele.quantity)
+        // var tt=this.totalPrice;
+        console.log(this.totalPrice);
+        
     }
    });
 
-   this.invokeStripe();
+  //  this.invokeStripe();
   }
 
 
@@ -152,53 +158,53 @@ export class BuyComponent implements OnInit {
   }
 
 
-  makePayment(amount: number) {
-    const paymentHandler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_51KjKdSSD8WAUVnUwNNn2C4gyb45GgpTk6vMyHkO5QRxoo57oP3t2fsUH09qOJixYbajgwDhfTbI7DXhuogtPv6L200PYrtTLfr',
-      locale: 'auto',
-      token: function (stripeToken: any) {
-        console.log(stripeToken);
-        paymentstripe(stripeToken);
-      },
-    });
+  // makePayment(amount: number) {
+  //   const paymentHandler = (<any>window).StripeCheckout.configure({
+  //     key: 'pk_test_51KjKdSSD8WAUVnUwNNn2C4gyb45GgpTk6vMyHkO5QRxoo57oP3t2fsUH09qOJixYbajgwDhfTbI7DXhuogtPv6L200PYrtTLfr',
+  //     locale: 'auto',
+  //     token: function (stripeToken: any) {
+  //       console.log(stripeToken);
+  //       paymentstripe(stripeToken);
+  //     },
+  //   });
 
-    const paymentstripe = (stripeToken: any) => {
-      this.checkoutservice.makePayment(stripeToken).subscribe((data: any) => {
-        console.log(data);
-        if (data.data === "success") {
-          this.success = true
-        }
-        else {
-          this.failure = true
-        }
-      });
-    };
+    // const paymentstripe = (stripeToken: any) => {
+    //   this.checkoutservice.makePayment(stripeToken).subscribe((data: any) => {
+    //     console.log(data);
+    //     if (data.data === "success") {
+    //       this.success = true
+    //     }
+    //     else {
+    //       this.failure = true
+    //     }
+    //   });
+    // };
 
-    paymentHandler.open({
-      name: 'Coding Shiksha',
-      description: 'This is a sample pdf file',
-      amount: amount * 100,
-    });
-  }
+  //   paymentHandler.open({
+  //     name: 'Coding Shiksha',
+  //     description: 'This is a sample pdf file',
+  //     amount: amount * 100,
+  //   });
+  // }
 
-  invokeStripe() {
-    if (!window.document.getElementById('stripe-script')) {
-      const script = window.document.createElement('script');
-      script.id = 'stripe-script';
-      script.type = 'text/javascript';
-      script.src = 'https://checkout.stripe.com/checkout.js';
-      script.onload = () => {
-        this.paymentHandler = (<any>window).StripeCheckout.configure({
-          key: 'pk_test_51KjKdSSD8WAUVnUwNNn2C4gyb45GgpTk6vMyHkO5QRxoo57oP3t2fsUH09qOJixYbajgwDhfTbI7DXhuogtPv6L200PYrtTLfr',
-          locale: 'auto',
-          token: function (stripeToken: any) {
-            console.log(stripeToken ,'----------------->>>>>>>>>>> ');
+  // invokeStripe() {
+  //   if (!window.document.getElementById('stripe-script')) {
+  //     const script = window.document.createElement('script');
+  //     script.id = 'stripe-script';
+  //     script.type = 'text/javascript';
+  //     script.src = 'https://checkout.stripe.com/checkout.js';
+  //     script.onload = () => {
+  //       this.paymentHandler = (<any>window).StripeCheckout.configure({
+  //         key: 'pk_test_51KjKdSSD8WAUVnUwNNn2C4gyb45GgpTk6vMyHkO5QRxoo57oP3t2fsUH09qOJixYbajgwDhfTbI7DXhuogtPv6L200PYrtTLfr',
+  //         locale: 'auto',
+  //         token: function (stripeToken: any) {
+  //           console.log(stripeToken ,'----------------->>>>>>>>>>> ');
 
-          },
-        });
-      };
+  //         },
+  //       });
+  //     };
 
-      window.document.body.appendChild(script);
-    }
-  }
+  //     window.document.body.appendChild(script);
+  //   }
+  // }
 }

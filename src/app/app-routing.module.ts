@@ -33,7 +33,7 @@ const routes: Routes=[
   {path:'login',  component:LoginComponent},
 
   {path:'register', component:RegisterComponent},
-  {path:'cart/:id', component:CartComponent},
+  {path:'cart/:id', component:CartComponent,},
   {path:'view-product/:id',component:ViewProductComponent},
   {path:'view-product-list/:id',component:ViewProductListComponent},
   {

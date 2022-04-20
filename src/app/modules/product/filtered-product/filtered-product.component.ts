@@ -15,7 +15,7 @@ export class FilteredProductComponent implements OnInit {
   product: any;
    productData:Product[]=[]
   productId: any;
-
+  p: number = 1;
   constructor(private productsService:ProductService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {

@@ -3,8 +3,6 @@
 <div class="mt-5 mb-5" id="receipt">
   <a name="" style="position: relative; float: right; " id="divcolor" class="btn" href="javascript:;;" role="button"
     (click)="downloadReceipt()"><i class="fa fa-download"></i>Dawnload pdf</a>
-
-
   <div class="container">
     <h2 class="my-5 h2 text-center" style="color: #f71a67!important;">Checkout form</h2>
     <div class="row">
@@ -182,8 +180,8 @@
               <tr *ngFor="let p of productData; let i= index;">
                 <th scope="row">{{i+1}}</th>
                 <td>{{p.pname}}</td>
-                <td>{{p.Quantity}}</td>
-                <td>{{p.price*p.Quantity}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.price*p.quantity}}</td>
               </tr>
             </tbody>
           </table>
@@ -204,26 +202,5 @@
       </div>
     </div>
   </div>
-
-  <button (click)="makePayment(totalPrice)">Pay With Stripe</button>
-
-<div *ngIf="success">
-  <h1>Your Payment is complete successfully</h1>
 </div>
-<div *ngIf="failure">
-    <h1>Some Error is taken place inside the payment</h1>
-</div>
-
-
-
-<!--
-<form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
-  <input type="text" formControlName="name" placeholder="Jane Doe">
-  <ngx-stripe-card
-    [options]="cardOptions"
-    [elementsOptions]="elementsOptions"
-  ></ngx-stripe-card>
-  <button type="submit">
-    CREATE TOKEN
-  </button>
-</form> -->
+<app-footer></app-footer>

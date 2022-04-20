@@ -17,7 +17,7 @@ export class ViewProductComponent implements OnInit {
   productId: any;
   hostname: string | any;
   myform: any;
-
+  userId :any;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -27,9 +27,11 @@ export class ViewProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('userId')
     this.myform = this.fb.group({
+      userid:this.userId,
       size: ['S', [Validators.required]],
-      Quantity: ['1', [Validators.required]],
+      quantity: ['1', [Validators.required]],
     });
 
     this.hostname = environment.hosturl;
@@ -49,10 +51,10 @@ export class ViewProductComponent implements OnInit {
   onSubmit(formDirective: FormGroupDirective): void {
     console.log(this.myform.value);
 
-    this.cartService.addOrder(this.myform.value, this.productId).subscribe({
+   this.cartService.addOrder(this.myform.value, this.productId ).subscribe({
       next: (result: any) => {
         console.log(result);
-        this.router.navigate(['/cart',this.productId]);
+        this.router.navigate(['/cart',this.userId]);
         Swal.fire({
           title: 'Added!',
           text: 'Added product successfully',
@@ -60,7 +62,9 @@ export class ViewProductComponent implements OnInit {
           confirmButtonText: 'Woow',
         });
       },
-      error: (e: any) => {},
+      error: (e: any) => {
+        alert("login before add product")
+      },
       complete: () => {},
     });
   }
